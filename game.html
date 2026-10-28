@@ -2911,7 +2911,7 @@ setTimeout(()=>{const b=document.querySelector('.opt.main:not(:disabled)'); if(b
 <script>
 (function(){
   const el=document.createElement('div'); el.className='op'; el.id='intro'; el.lang='en';
-  el.setAttribute('role','dialog'); el.setAttribute('aria-modal','true'); el.setAttribute('aria-label','Wrist Isle. A TFCC Recovery Game. An interactive artwork by Yimin Chen.');
+  el.setAttribute('role','dialog'); el.setAttribute('aria-modal','true'); el.setAttribute('aria-label','Wrist Isle. A TFCC Recovery Game.');
   const title='Wrist Isle';
   el.innerHTML=`<canvas aria-hidden="true"></canvas><div class="op-sun" aria-hidden="true"></div><div class="op-dawn" aria-hidden="true"><svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice">
       <defs>
@@ -2946,7 +2946,7 @@ setTimeout(()=>{const b=document.querySelector('.opt.main:not(:disabled)'); if(b
     </svg></i><span class="op-w" style="display:inline-block">${[...title].map((ch,i)=>ch==='|'?'<span class="sp sp1" style="--n:'+i+'"> </span><br class="op-br">':ch===' '?'<span class="sp" style="--n:'+i+'"> </span>':'<span style="--n:'+i+'">'+ch+'</span>').join('')}</span></h1>
       <i class="op-line"></i>
       </div>
-    <div class="op-c2" aria-hidden="true"><small>An interactive artwork by</small><span class="op-sig">Yimin Chen</span></div><p class="op-skip" aria-hidden="true">Tap to continue</p>`;
+    <p class="op-skip" aria-hidden="true">Tap to continue</p>`;
   document.body.appendChild(el);
   /* the wet edges keep slowly shifting, like paint still spreading */
   const turb=el.querySelector('#opTurb'), RMQ=matchMedia('(prefers-reduced-motion: reduce)'); let alive=true; const t0w=performance.now();
@@ -2962,8 +2962,7 @@ setTimeout(()=>{const b=document.querySelector('.opt.main:not(:disabled)'); if(b
   }
   el.addEventListener('click',()=>close(true));
   addEventListener('keydown',e=>{ if(done) return; e.preventDefault(); e.stopImmediatePropagation(); close(true); },true);
-  setTimeout(()=>{ if(!done) el.classList.add('s2'); }, RMQ.matches?1500:3900);
-  setTimeout(()=>{ if(!done){ el.classList.add('ready'); el.setAttribute('aria-label',el.getAttribute('aria-label')+' Tap to continue.'); setTimeout(()=>close(false),3000); } }, RMQ.matches?2000:7100);
+  setTimeout(()=>{ if(!done){ el.classList.add('ready'); el.setAttribute('aria-label',el.getAttribute('aria-label')+' Tap to continue.'); setTimeout(()=>close(false),3000); } }, RMQ.matches?1500:3800);
 })();
 </script>
 <script>
